@@ -2,7 +2,6 @@ import { PrismaClient } from '@prisma/client';
 import { UserCreationDto } from '../src/types/UserTypes';
 const prisma = new PrismaClient();
 
-
 const users = [
   {
     name: "Fulano de tal",
