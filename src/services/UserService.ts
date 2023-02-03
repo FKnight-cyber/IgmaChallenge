@@ -16,7 +16,7 @@ async function register(data:UserCreationDto) {
     
     await UserRepository.insert(data);
   }else {
-    throw checkError(422, "Cpf inválido!");
+    throw checkError(422, "Invalid cpf!");
   }
 };
 
