@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npx prisma generate && npx prisma migrate dev && node dist/server.js",
     "dev": "npx prisma migrate dev && npx prisma db seed && nodemon src/server.ts",
     "test": "dotenv -e .env.test npx prisma migrate dev && dotenv -e .env.test jest -- -i --coverage",
     "test:integration": "dotenv -e .env.test npx prisma migrate dev && dotenv -e .env.test jest -- -i --coverage --testPathPattern=/tests/integration",
@@ -23,7 +24,8 @@
     "dotenv-cli": "^7.0.0",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
-    "joi": "^17.7.0"
+    "joi": "^17.7.0",
+    "prisma": "^4.9.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
