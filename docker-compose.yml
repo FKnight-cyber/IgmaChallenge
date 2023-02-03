@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  igmadb:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: igmadb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - docker-express-postgres:/var/lib/postgresql/data
+      
+  igma-api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: development
+    volumes:
+      - .:/usr/src/app
+    env_file:
+    - .env
+    command: npm run dev
+    ports:
+      - 5000:5000
+    depends_on:
+      - igmadb
+
+volumes:
+  docker-express-postgres:

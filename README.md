@@ -253,6 +253,11 @@ Start server
 ```bash
   npm run dev
 ```
+
+Start server with docker
+```bash
+  docker-compose up --build
+```
 #
 
 ## Tests
