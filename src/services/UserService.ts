@@ -1,3 +1,4 @@
+import { User } from "@prisma/client";
 import { checkError } from "../middlewares/errorHandler";
 import UserRepository from "../repositories/UserRepository";
 import { UserCreationDto } from "../types/UserTypes";
@@ -18,8 +19,19 @@ async function register(data:UserCreationDto) {
   }
 };
 
+async function getUser(cpf:string) {
+  const user:User = await UserRepository.findByCpf(cpf);
+
+  if(!user) {
+    throw checkError(404, "This CPF wasn't registered!");
+  }
+
+  return user;
+}
+
 const UserServices = {
-  register
+  register,
+  getUser
 };
 
 export default UserServices;
