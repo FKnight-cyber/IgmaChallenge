@@ -230,6 +230,10 @@ Clone the project
   git clone https://github.com/FKnight-cyber/IgmaChallenge.git
 ```
 
+```bash
+  cd IgmaChallenge
+```
+
 Install packages
 
 ```bash
