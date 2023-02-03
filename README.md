@@ -34,6 +34,7 @@ O cpf do usuário deveria ser validado antes de ser registrado no banco de dados
 ### Add person
 
 ```
+https://igmachallenge-production.up.railway.app
 http://localhost:5000
 POST /register
 ```
@@ -66,6 +67,7 @@ status: 201
 ### Get user by cpf
 
 ```
+https://igmachallenge-production.up.railway.app
 http://localhost:5000
 GET /user?cpf=
 ```
@@ -90,6 +92,7 @@ GET /user?cpf=
 ### Get all users
 
 ```
+https://igmachallenge-production.up.railway.app
 http://localhost:5000
 GET /users
 ```
@@ -219,6 +222,9 @@ DATABASE_URL
 #
 
 ## Run
+
+Fiz o deploy da API utilizando o Railway e o banco de dados pelo Render então é possível testar as rotas enviando as requisições para
+https://igmachallenge-production.up.railway.app
 
 #
 
