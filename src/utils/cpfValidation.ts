@@ -11,7 +11,7 @@ export default function validateCpf(cpf:string) {
       sum += Number(checkCpf[i]) * ( 10 + j - i);
     };
   
-    if(sum/11 < 2) {
+    if(sum % 11 < 2) {
       digit = 0;
     }else {
       digit = 11 - sum % 11;
