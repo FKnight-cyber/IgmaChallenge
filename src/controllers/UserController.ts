@@ -18,4 +18,12 @@ export async function findByCpf(req:Request, res:Response) {
   const user:User = await UserServices.getUser(cpf.toString());
 
   return res.status(200).send(user);
-}
+};
+
+export async function findUsers(req:Request, res:Response) {
+  const { page } = req.query;
+
+  const users:User[] = await UserServices.getUsers(Number(page));
+
+  return res.status(200).send(users);
+};

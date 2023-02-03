@@ -8,11 +8,27 @@ async function insert(data:UserCreationDto) {
 
 async function findByCpf(cpf:string) {
   return await prisma.user.findFirst({where:{cpf:formatCpf(cpf)}});
-}
+};
+
+async function getUsers(page:number) {
+  return await prisma.user.findMany({
+    orderBy:{
+      id:'asc'
+    },
+    skip:5*(page - 1),
+    take:5
+  });
+};
+
+async function getAllUsers() {
+  return await prisma.user.findMany();
+};
 
 const UserRepository = {
   insert,
-  findByCpf
+  findByCpf,
+  getUsers,
+  getAllUsers
 };
 
 export default UserRepository;
